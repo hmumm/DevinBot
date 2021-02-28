@@ -38,7 +38,7 @@ async def send_random_messages():
         logging.debug("sending ad: " + ad)
         await channel.send(ad)
 
-logging.basicConfig(filename='output.log', encoding='utf-8', level=logging.DEBUG)
+logging.basicConfig(filename='output.log', level=logging.DEBUG)
 token = os.getenv('DISCORDTOKEN')
 loggin.debug('using token: ' + token)
 client.run(token)
