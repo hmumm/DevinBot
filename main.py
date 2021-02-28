@@ -40,5 +40,5 @@ async def send_random_messages():
 
 logging.basicConfig(filename='output.log', level=logging.DEBUG)
 token = os.getenv('DISCORDTOKEN')
-loggin.debug('using token: ' + token)
+logging.debug('using token: ' + token)
 client.run(token)
