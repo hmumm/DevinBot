@@ -18,25 +18,27 @@ ads = [
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    logging.debug('We have logged in as {0.user}'.format(client))
     loop = asyncio.get_event_loop()
     loop.create_task(send_random_messages())
 
 
 async def send_random_messages():
-    print('Starting to send ads')
+    logging.debug('Starting to send ads')
     channel = client.get_channel(575184680173961216)
 
     while True:
         # wait a random amount of time betweent 3600 seconds (1 hour) and 86400 seconds (1 day)
-        print('')
-        await asyncio.sleep(random.randint(3600, 86400))
-
-        ad = random.choice(ads)
-
-        print("sending ad: " + ad)
+        secondsToWait = random.randint(3600, 86400)
+        logging.debug('Waiting ' + secondsToWait + ' seconds until sending another ad')
+        await asyncio.sleep(secondsToWait)
 
         # send a random message from the ads array
+        ad = random.choice(ads)
+        logging.debug("sending ad: " + ad)
         await channel.send(ad)
 
-client.run(os.getenv('DISCORDTOKEN'))
+logging.basicConfig(filename='output.log', encoding='utf-8', level=logging.DEBUG)
+token = os.getenv('DISCORDTOKEN')
+loggin.debug('using token: ' + token)
+client.run(token)
