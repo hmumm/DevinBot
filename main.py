@@ -30,7 +30,7 @@ async def send_random_messages():
     while True:
         # wait a random amount of time betweent 3600 seconds (1 hour) and 86400 seconds (1 day)
         secondsToWait = random.randint(3600, 86400)
-        logging.debug('Waiting ' + secondsToWait + ' seconds until sending another ad')
+        logging.debug('Waiting ' + str(secondsToWait) + ' seconds until sending another ad')
         await asyncio.sleep(secondsToWait)
 
         # send a random message from the ads array
