@@ -3,6 +3,7 @@ import os
 import asyncio
 import random
 import logging
+from datetime import datetime
 
 client = discord.Client()
 
@@ -31,7 +32,11 @@ async def send_random_messages():
         # wait a random amount of time betweent 3600 seconds (1 hour) and 86400 seconds (1 day)
         secondsToWait = random.randint(3600, 86400)
         logging.debug('Waiting ' + str(secondsToWait) + ' seconds until sending another ad')
-        await asyncio.sleep(secondsToWait)
+
+        startOfWaiting = dattime.now()
+
+        while (dattime.now() - startOfWaiting).difference.total_seconds() < secondsToWait
+            await asyncio.sleep(1)
 
         # send a random message from the ads array
         ad = random.choice(ads)
