@@ -4,7 +4,7 @@ import asyncio
 import random
 import logging
 from datetime import datetime
-from logging.handlers import RotatingFileHandler
+from logging.handlers import TimedRotatingFileHandler
 
 client = discord.Client()
 
