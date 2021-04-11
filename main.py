@@ -60,7 +60,7 @@ def setup_logging():
     logger = logging.getLogger()
     logger.setLevel("DEBUG")
 
-    handler = TimedRotatingFileHandler("output.log", when="d_", interval=1, backupCount=7)
+    handler = TimedRotatingFileHandler("output.log", when="d", interval=1, backupCount=7)
 
     formatter = logging.Formatter("%(asctime)s;%(levelname)s;%(message)s", "%Y-%m-%d %H:%M:%S")
     handler.setFormatter(formatter)
