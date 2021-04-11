@@ -46,7 +46,7 @@ async def send_random_messages():
         secondsToWait = random.randint(3600, 86400)
         logging.debug('Waiting ' + str(secondsToWait) + ' seconds until sending another ad')
 
-        startOfWaiting = dattime.now()
+        startOfWaiting = datetime.now()
 
         while (datetime.now() - startOfWaiting).total_seconds() < secondsToWait:
             await asyncio.sleep(1)
