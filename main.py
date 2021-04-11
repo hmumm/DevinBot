@@ -55,9 +55,9 @@ async def send_random_messages():
         logging.debug("sending ad: " + ad)
         await channel.send(ad)
 
-async def setup_logging():
+def setup_logging():
     logger = logging.getLogger()
-    logger.level("DEBUG")
+    logger.setLevel("DEBUG")
 
     handler = TimedRotatingFileHandler("output.log", when="d_", interval=1, backupCount=7)
 
@@ -66,7 +66,7 @@ async def setup_logging():
 
     logger.addHandler(handler)
 
-await setup_logging()
+setup_logging()
 token = os.getenv('DISCORDTOKEN')
 logging.debug('using token: ' + token)
 client.run(token)
